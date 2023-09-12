@@ -1,6 +1,14 @@
 "line numbers
 set number
 
+set scrolloff=15
+
+set clipboard+=unnamedplus
+
+nnoremap <C-v> "+p
+
+nnoremap <C-c> "+y
+
 "plugins
 call plug#begin('~/AppData/Local/nvim/plugged')
 
@@ -30,7 +38,7 @@ Plug 'sbdchd/neoformat'
 Plug 'davidhalter/jedi-vim'
 
 "multiple cursors
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 
 "fold them functions
 Plug 'tmhedberg/SimpylFold'
@@ -41,14 +49,26 @@ Plug 'joshdick/onedark.vim'
 "closing buffers
 Plug 'moll/vim-bbye'
 
+"folds
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo'
+
 call plug#end()
 
 "setting colorscheme
 syntax on
 colorscheme onedark
 
-"start with initialized NerdTree
-autocmd vimenter * NERDTree D:\Paul
+if !empty($ISVENV)
+    let g:NERDTreeChDirMode = 2
+
+    "start with initialized NerdTree
+    autocmd vimenter * NERDTree
+
+else
+    autocmd vimenter * NERDTree D:/Paul/dev/
+
+endif
 
 "auto close NERDTree if last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -69,14 +89,16 @@ nnoremap <Leader>q :Bdelete<CR>
 function RunFile(ftype, fargs = "")
     if a:ftype == 'python'
         execute '!py -3.10 "%:p" ' . a:fargs
+
     elseif a:ftype == 'cpp'
 	    echo expand("%:p:h") . "/Makefile"
         if filereadable(getcwd() . "/Makefile")
             execute "!make"
-            execute "!cd bin && app.exe"
+            execute "!cd bin && " . a:fargs . ".exe"
         else
             execute "!clang++ %:p " . a:fargs
         endif
+
     else
         echo 'not recognised language!'
     endif
@@ -103,10 +125,34 @@ filetype plugin indent on
 
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
+autocmd FileType cpp set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+let g:VM_mouse_mappings = 1
+let g:VM_theme = 'iceblue'
+let g:VM_highlight_matches = 'underline'
+
+let g:VM_maps = {}
+let g:VM_maps["Undo"] = 'u'
+let g:VM_maps["Redo"] = '<C-r>'
+
+lua << EOF
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+require('ufo').setup()
+EOF
 
 "import coc config
 source ~/AppData/Local/nvim/plug-config/coc.vim
