@@ -66,7 +66,7 @@ if !empty($ISVENV)
     autocmd vimenter * NERDTree
 
 else
-    autocmd vimenter * NERDTree D:/Paul/dev/
+    autocmd vimenter * NERDTree C:/Users/Paul/Documents/dev/
 
 endif
 
