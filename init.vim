@@ -34,9 +34,6 @@ Plug 'scrooloose/nerdcommenter'
 "auto-formater
 Plug 'sbdchd/neoformat'
 
-"code jumper
-Plug 'davidhalter/jedi-vim'
-
 "multiple cursors
 Plug 'mg979/vim-visual-multi'
 
@@ -52,6 +49,9 @@ Plug 'moll/vim-bbye'
 "folds
 Plug 'kevinhwang91/promise-async'
 Plug 'kevinhwang91/nvim-ufo'
+
+"lazy git
+Plug 'kdheepak/lazygit.nvim'
 
 call plug#end()
 
@@ -88,7 +88,7 @@ nnoremap <Leader>q :Bdelete<CR>
 
 function RunFile(ftype, fargs = "")
     if a:ftype == 'python'
-        execute '!py -3.10 "%:p" ' . a:fargs
+        execute '!py -3.11 "%:p" ' . a:fargs
 
     elseif a:ftype == 'cpp'
 	    echo expand("%:p:h") . "/Makefile"
@@ -141,6 +141,9 @@ let g:VM_maps = {}
 let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 
+"import coc config
+source ~/AppData/Local/nvim/plug-config/coc.vim
+
 lua << EOF
 vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -154,5 +157,4 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 require('ufo').setup()
 EOF
 
-"import coc config
-source ~/AppData/Local/nvim/plug-config/coc.vim
+nnoremap <silent> <leader>gg :LazyGit<CR>
