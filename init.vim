@@ -9,8 +9,10 @@ nnoremap <C-v> "+p
 
 nnoremap <C-c> "+y
 
+let mapleader = "\<Space>"
+
 "plugins
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 
@@ -66,12 +68,14 @@ if !empty($ISVENV)
     autocmd vimenter * NERDTree
 
 else
-    autocmd vimenter * NERDTree C:/Users/Paul/Documents/dev/
+    autocmd vimenter * NERDTree ~/
 
 endif
 
 "auto close NERDTree if last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+nnoremap <Leader>i :NERDTreeFocus<CR>
 
 "vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -111,14 +115,6 @@ let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
-"code jumper
-let g:jedi#completions_enabled = 0
-let g:jedi#use_splits_not_buffer = "right"
-
-let jedi#force_py_version=3.10
-
-let g:clang_library_path='~\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\15.0.6\\clangd_15.0.6\\bin'
-let g:coc_clangd_cmd = 'clangd'
 let $NVIM_COC_LOG_LEVEL = 'debug'
 
 filetype plugin indent on
@@ -141,8 +137,26 @@ let g:VM_maps = {}
 let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 
+nnoremap <silent> <leader>gg :LazyGit<CR>
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 "import coc config
-source ~/AppData/Local/nvim/plug-config/coc.vim
+source ~/.config/nvim/plug-config/coc.vim
 
 lua << EOF
 vim.o.foldcolumn = '1' -- '0' is not bad
@@ -156,5 +170,3 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 require('ufo').setup()
 EOF
-
-nnoremap <silent> <leader>gg :LazyGit<CR>
