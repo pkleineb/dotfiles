@@ -57,7 +57,7 @@ return {
                 vim.keymap.set('n', 'bt',      api.marks.bulk.trash,                opts('Trash Bookmarked'))
                 vim.keymap.set('n', 'bmv',     api.marks.bulk.move,                 opts('Move Bookmarked'))
                 vim.keymap.set('n', 'B',       api.tree.toggle_no_buffer_filter,    opts('Toggle Filter: No Buffer'))
-                --vim.keymap.set('n', 'c',       api.fs.copy.node,                    opts('Copy'))
+                vim.keymap.set('n', 'cp',       api.fs.copy.node,                    opts('Copy'))
                 vim.keymap.set('n', 'C',       api.tree.toggle_git_clean_filter,    opts('Toggle Filter: Git Clean'))
                 vim.keymap.set('n', '[c',      api.node.navigate.git.prev,          opts('Prev Git'))
                 vim.keymap.set('n', ']c',      api.node.navigate.git.next,          opts('Next Git'))

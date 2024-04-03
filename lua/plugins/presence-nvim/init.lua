@@ -1,5 +1,6 @@
 return {
     "andweeb/presence.nvim",
+    lazy = false,
 
     config = function ()
         require("presence").setup({
@@ -8,7 +9,6 @@ return {
 
             buttons = {
                 { label = "GitHub Profile", url = "https://github.com/pkleineb" },
-                { label = "Working for", url = "https://github.com/ElbInnovations" },
                 { label = "Crazy cofings", url = "https://github.com/pkleineb/dotfiles" },
             },
         })
