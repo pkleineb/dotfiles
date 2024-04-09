@@ -124,6 +124,6 @@ return {
     end,
 
     keys = {
-        { "<leader>i", "<cmd>NvimTreeFocus<cr>", desc = "NeoTree" },
+        { "<leader>i", "<cmd>NvimTreeFocus<cr>", desc = "[NeoTree] Focus tree" },
     },
 }
