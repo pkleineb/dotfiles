@@ -31,6 +31,9 @@ return {
             {
                 name = "cssls",
             },
+            {
+                name = "vimls",
+            },
         }
 
         for _, server in ipairs(servers) do
