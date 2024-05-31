@@ -1,7 +1,7 @@
-local defaults = require('globals.defaults')
-local options = require('globals.options')
-local autocmd = require('globals.autocmd')
-local keymap = require('globals.keymap')
+local defaults = require('configs.defaults')
+local options = require('configs.options')
+local autocmd = require('configs.autocmd')
+local keymap = require('configs.keymap')
 
 local M = {}
 

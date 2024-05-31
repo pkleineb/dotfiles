@@ -1,5 +1,5 @@
-local utils = require("globals.utils")
-local defaults = require("globals.defaults")
+local utils = require("configs.utils")
+local defaults = require("configs.defaults")
 
 local autocmd = {
     {
@@ -33,14 +33,20 @@ local autocmd = {
                 vim.opt.expandtab = false
             end
         },
-    }, {
+    },
+    {
         event = 'BufWritePost',
         args = {
             pattern = '*/lua/*.lua',
             callback = function()
-                local fileName = vim.api.nvim_buf_get_name(0)
-                utils.reloadLua(fileName)
-                vim.notify("reloaded" .. fileName)
+                if vim.fn.getcwd() == vim.fn.stdpath("config") then
+                    return
+                end
+                local cwdLua = vim.fn.getcwd() .. "/lua"
+                -- double loading since then all dependencies will have also refreshed
+                utils.loadDir(cwdLua)
+                utils.loadDir(cwdLua)
+                print("Reloaded lua dir")
             end
         },
     },
