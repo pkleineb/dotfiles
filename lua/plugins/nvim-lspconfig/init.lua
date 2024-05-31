@@ -6,6 +6,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        "folke/neodev.nvim",
     },
 
     config = function()
@@ -21,6 +22,10 @@ return {
             },
             {
                 name = "lua_ls",
+                before_start = function()
+                    require("neodev").setup({
+                    })
+                end,
             },
             {
                 name = "tsserver",
@@ -36,6 +41,7 @@ return {
             },
         }
 
+        -- starts the servers automatically using the default config and specific configs set in the local
         for _, server in ipairs(servers) do
             local config = server.config or {}
             local setup_config = { capabilities = capabilities }
@@ -43,7 +49,7 @@ return {
             for key, value in pairs(config) do
                 setup_config[key] = value
             end
-
+            --if server.before_start ~= nil then server.before_start() end
             lspconfig[server.name].setup(setup_config)
         end
 
