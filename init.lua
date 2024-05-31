@@ -1,12 +1,5 @@
 vim.g.mapleader = ' '
 
-function script_path()
-   local str = debug.getinfo(2, "S").source:sub(2)
-   return str:match("(.*/)")
-end
-
-package.cpath = package.cpath .. ";" .. script_path() .. "/lua/lib/lua/5.1/?.so"
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -21,4 +14,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-require("globals.config").setup()
+require("configs.config").setup()
