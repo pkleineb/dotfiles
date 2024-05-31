@@ -3,4 +3,5 @@ return {
     name = "bluloco",
 
     priority = 1000,
+    lazy = true,
 }

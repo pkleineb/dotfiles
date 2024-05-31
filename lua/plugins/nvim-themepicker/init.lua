@@ -2,7 +2,7 @@ return {
     "pkleineb/themepicker.nvim",
 
     keys = {
-        { "<leader>t", "<cmd>ThemepickerRun<cr>", desc = "[Themepicker] Constructs Themepickerw window" },
+        { "<leader>t", "<cmd>ThemepickerRun<cr>", desc = "[Themepicker] Constructs Themepicker window" },
     },
 
     config = function()
