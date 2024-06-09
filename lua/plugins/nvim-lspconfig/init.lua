@@ -15,7 +15,10 @@ return {
 
         local servers = {
             {
-                name = "pylsp",
+                name = "pylyzer",
+            },
+            {
+                name = "ruff_lsp",
             },
             {
                 name = "rust_analyzer",
