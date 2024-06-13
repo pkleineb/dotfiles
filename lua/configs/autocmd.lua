@@ -35,6 +35,18 @@ local autocmd = {
         },
     },
     {
+        event = 'FileType',
+        args = {
+            pattern = {"yaml", "yml", "json", "html", "htmldjango"},
+            callback = function()
+                vim.opt.tabstop = 2
+                vim.opt.shiftwidth = 2
+                vim.opt.softtabstop = 2
+                vim.opt.expandtab = true
+            end
+        },
+    },
+    {
         event = 'BufWritePost',
         args = {
             pattern = '*/lua/*.lua',
