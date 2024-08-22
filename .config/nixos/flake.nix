@@ -12,10 +12,10 @@
 
   outputs = { self, nixpkgs, ... } @ inputs:
   {
-    nixosConfigurations.Huffelpuff = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.Hufflepuff = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        ./machines/Huffelpuff/configuration.nix
+        ./machines/Hufflepuff/configuration.nix
 	./modules/nixos
         inputs.home-manager.nixosModules.default
       ];

@@ -5,7 +5,7 @@
 { config, lib, pkgs, inputs, ... }:
 let
   main_user_name = "paul";
-  host_name = "Huffelpuff";
+  host_name = "Hufflepuff";
 in
 {
   imports =
@@ -19,8 +19,24 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos_vm"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = host_name;
+    networkmanager.enable = true;
+
+    interfaces.enp34s0 = {
+      ipv4.addresses = [{
+        address = "192.168.1.15";
+        prefixLength = 24;
+      }];
+    };
+
+    defaultGateway = {
+      address = "192.168.1.254";
+      interface = "enp34s0";
+    };
+
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
