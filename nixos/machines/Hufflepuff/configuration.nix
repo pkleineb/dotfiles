@@ -46,11 +46,7 @@ in
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgs; };
     users = {
-      ${main_user_name} = { ... }: {
-        imports = [
-          ./home.nix
-	];
-      };
+      ${main_user_name} = import ./home.nix;
     };
   };
 
@@ -110,11 +106,9 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    xdg-desktop-portal
+  #environment.systemPackages = with pkgs; [
   #   wget
-  ];
+  #];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -160,4 +154,3 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-

@@ -1,0 +1,1 @@
+/nix/store/rmc1wmrmvr355yf68vz6s93lf9g8rxzw-home-manager-files/.config/nvim/lua/configs/treesitter_fix.lua

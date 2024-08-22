@@ -2,10 +2,12 @@ local defaults = require('configs.defaults')
 local options = require('configs.options')
 local autocmd = require('configs.autocmd')
 local keymap = require('configs.keymap')
+local treesitter_fix = require('configs.treesitter_fix')
 
 local M = {}
 
 function M.setup() -- setting options
+    treesitter_fix.run()
     for option, value in pairs(options) do
         vim.opt[option] = value
     end

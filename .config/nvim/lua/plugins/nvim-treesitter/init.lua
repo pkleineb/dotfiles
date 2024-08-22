@@ -1,19 +1,18 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    main = "nvim-treesitter.configs",
+    dev = true,
 
-    config = function()
-        require("nvim-treesitter.configs").setup({
-            ensure_installed = { "rust", "html", "css", "javascript", "python", "kdl" },
-            sync_install = false,
+    opts = {
+        -- ensure_installed = { "rust", "html", "css", "javascript", "python", "kdl" },
+        -- sync_install = false,
 
-            highlight = {
-                enable = true,
-            },
+        highlight = {
+            enable = true,
+        },
 
-            indent = {
-                enable = true,
-            },
-        })
-    end
+        indent = {
+            enable = true,
+        },
+    },
 }

@@ -3,6 +3,10 @@ let
   home_modules = import ./../../modules/home-manager { inherit pkgs inputs; };
 in
 {
+  imports = [
+    ../../modules/home-manager
+  ];
+
   home.username = "paul";
   home.homeDirectory = "/home/paul";
 
@@ -10,6 +14,8 @@ in
   # environment.
   home.packages = [
   ];
+
+  programs.git.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -35,4 +41,4 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-} // home_modules
+}
