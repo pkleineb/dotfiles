@@ -34,6 +34,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    LD_LIBRARY_PATH = "${pkgs.libGL}/lib/:${pkgs.stdenv.cc.cc.lib}/lib/";
   };
 
   home.stateVersion = "24.05"; # DO NOT CHANGE.
