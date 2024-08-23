@@ -2,7 +2,7 @@
 
 {
   options = {
-    zsh.default_shell = lib.mkEnableOption "set zsh as default shell in .bashrc";
+    zsh.default_shell = lib.mkEnableOption "set zsh as default shell in .bashprofile";
   };
 
   config = {
