@@ -1,7 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
-let
-  home_modules = import ./../../modules/home-manager { inherit pkgs inputs; };
-in
+
 {
   imports = [
     ../../modules/home-manager
@@ -14,8 +12,6 @@ in
   # environment.
   home.packages = [
   ];
-
-  programs.git.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -34,7 +30,6 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    LD_LIBRARY_PATH = "${pkgs.libGL}/lib/:${pkgs.stdenv.cc.cc.lib}/lib/";
   };
 
   home.stateVersion = "24.05"; # DO NOT CHANGE.
