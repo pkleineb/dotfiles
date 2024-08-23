@@ -1,0 +1,20 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+
+    pane split_direction="horizontal" {
+        pane split_direction="vertical" {
+            pane command="zsh" {
+                size "80%"
+                close_on_exit false
+            }
+            pane command="zsh" {
+                args "-c" "/home/paul/scripts/start_docker_in_dir.sh"
+                close_on_exit false
+            }
+        }
+
+        pane size="15%"
+    }
+}

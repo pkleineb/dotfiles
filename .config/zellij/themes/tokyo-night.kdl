@@ -1,0 +1,15 @@
+themes {
+    tokyo-night-dark {
+        fg 169 177 214
+        bg "#1a1b26"
+        black 56 62 90
+        red 249 51 87
+        green "#ed7795"
+        yellow 224 175 104
+        blue "#5db0cc"
+        magenta 187 154 247
+        cyan "#4abaaf"
+        white 192 202 245
+        orange 255 158 100
+    }
+}
