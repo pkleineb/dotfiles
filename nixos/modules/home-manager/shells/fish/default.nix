@@ -1,7 +1,7 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 
 {
-  home.packages = [
-    pkgs.fish
-  ]; 
+  programs.fish = {
+    enable = true;
+  };
 }

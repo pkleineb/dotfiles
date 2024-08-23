@@ -1,7 +1,22 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.zsh = {
-    enable = true;
+  options = {
+    zsh.default_shell = lib.mkEnableOption "set zsh as default shell in .bashrc";
+  };
+
+  config = {
+    programs.zsh = {
+      enable = true;
+    };
+
+    home.file.".bashprofile".text = lib.mkIf config.zsh.default_shell(lib.mkDefault(
+      lib.mkBefore ''
+        exec zsh
+      ''
+    ));
+
+    home.file.".zshrc".source = ./.zshrc;
+    home.file.".zshenv".source = ./.zshenv;
   };
 }
