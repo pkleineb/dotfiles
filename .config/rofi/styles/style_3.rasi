@@ -2,48 +2,41 @@
 configuration {
     modi:                        "drun,filebrowser,window,run";
     show-icons:                  true;
-    display-drun:                " ";
-    display-run:                 " ";
-    display-filebrowser:         " ";
-    display-window:              " ";
+    display-drun:                "";
+    display-run:                 "";
+    display-filebrowser:         "";
+    display-window:              "";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
     font:                        "JetBrainsMono Nerd Font 10";
     icon-theme:                  "Tela-circle-dracula";
 }
 
-@theme "~/.config/rofi/theme.rasi"
+@theme "~/.config/rofi/themes/theme.rasi"
 
 
 // Main //
 window {
-    height:                      30em;
-    width:                       37em;
+    height:                      500px;
+    width:                       600px;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
     cursor:                      "default";
-    spacing:                     0em;
-    padding:                     0em;
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               25px;
     border-color:                @main-br;
-    background-color:            @main-bg;
+    background-color:            transparent;
 }
 mainbox {
     enabled:                     true;
-    spacing:                     0em;
-    padding:                     0em;
+    spacing:                     0px;
+    padding:                     0px;
     orientation:                 vertical;
-    children:                    [ "inputbar" , "dummybox" ];
+    children:                    [ "listbox" , "inputbar"];
     background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.blur", height);
-}
-dummybox {
-    padding:                     0.5em;
-    spacing:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "listbox" ];
-    background-color:            transparent;
-    background-image:            transparent;
 }
 
 
@@ -55,48 +48,40 @@ inputbar {
 
 // Lists //
 listbox {
-    padding:                     0em;
-    spacing:                     0em;
-    children:                    [ "dummy" , "listview" , "dummy" ];
-    background-color:            transparent;
-    background-image:            transparent;
+    padding:                     5px;
+    spacing:                     5px;
+    orientation:                 horizontal;
+    children:                    [ "mode-switcher" , "listview" ];
+    background-image:            url("~/.config/swww/wall.blur", height);
 }
 listview {
-    padding:                     1em;
-    spacing:                     0em;
+    padding:                     20px;
+    spacing:                     5px;
     enabled:                     true;
     columns:                     1;
-    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    expand:                      false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            @main-bg;
     text-color:                  @main-fg;
-    border-radius:               1.5em;
+    border-radius:               25px;
 }
-dummy {
-    background-color:            transparent;
-}
-
-
-// Modes //
 mode-switcher {
     orientation:                 vertical;
-    width:                       6.8em;
+    width:                       100px;
     enabled:                     true;
-    padding:                     3.2em 1em 3.2em 1em;
-    spacing:                     1em;
+    padding:                     60px 10px 60px 10px;
+    spacing:                     15px;
     background-color:            transparent;
 }
 button {
     cursor:                      pointer;
-    border-radius:               3em;
+    border-radius:               50px;
     background-color:            @main-bg;
     text-color:                  @main-fg;
 }
@@ -109,18 +94,24 @@ button selected {
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     1em;
-    padding:                     0.4em;
+    spacing:                     30px;
+    padding:                     10px;
+    border-radius:               20px;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;
+}
+@media(max-aspect-ratio: 1.8) {
+    element {
+        orientation:             vertical;
+    }
 }
 element selected.normal {
     background-color:            @select-bg;
     text-color:                  @select-fg;
 }
 element-icon {
-    size:                        3em;
+    size:                        50px;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
@@ -133,17 +124,3 @@ element-text {
     text-color:                  inherit;
 }
 
-// Error message //
-error-message {
-    text-color:                  @main-fg;
-    background-color:            @main-bg;
-    text-transform:              capitalize;
-    children:                    [ "textbox" ];
-}
-
-textbox {
-    text-color:                  inherit;
-    background-color:            inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-}

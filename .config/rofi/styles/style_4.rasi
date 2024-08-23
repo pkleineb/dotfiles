@@ -2,50 +2,50 @@
 configuration {
     modi:                        "drun,filebrowser,window,run";
     show-icons:                  true;
-    display-drun:                " ";
-    display-run:                 " ";
-    display-filebrowser:         " ";
-    display-window:              " ";
+    display-drun:                "";
+    display-run:                 "";
+    display-filebrowser:         "";
+    display-window:              "";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
     font:                        "JetBrainsMono Nerd Font 10";
     icon-theme:                  "Tela-circle-dracula";
 }
 
-@theme "~/.config/rofi/theme.rasi"
+@theme "~/.config/rofi/themes/theme.rasi"
 
 
 // Main //
 window {
-    height:                      30em;
-    width:                       46em;
+    height:                      500px;
+    width:                       750px;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
     cursor:                      "default";
-    spacing:                     0em;
-    padding:                     0em;
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               40px;
     border-color:                @main-br;
-    background-color:            @main-bg;
+    background-color:            transparent;
 }
 mainbox {
     enabled:                     true;
-    spacing:                     0em;
-    padding:                     0em;
+    spacing:                     0px;
     orientation:                 horizontal;
     children:                    [ "inputbar" , "mode-switcher" , "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.blur", height);
+    background-image:            url("~/.config/swww/wall.blur", height);
 }
 
 
 // Inputs //
 inputbar {
     enabled:                     true;
-    width:                       8em;
+    width:                       180px;
     children:                    [ "entry" ];
-    background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.thmb", height);
+    background-image:            url("~/.config/swww/wall.rofi", height);
 }
 entry {
     enabled:                     false;
@@ -56,14 +56,15 @@ entry {
 mode-switcher{
     orientation:                 vertical;
     enabled:                     true;
-    width:                       7em;
-    spacing:                     1em;
-    padding:                     3.4em 1em 3.4em 1em;
+    spacing:                     0px;
+    width:                       100px;
+    padding:                     70px 10px 70px 20px;
+    spacing:                     25px;
     background-color:            transparent;
 }
 button {
     cursor:                      pointer;
-    border-radius:               3em;
+    border-radius:               50px;
     background-color:            @main-bg;
     text-color:                  @main-fg;
 }
@@ -75,50 +76,50 @@ button selected {
 
 // Lists //
 listbox {
-    spacing:                     0em;
-    padding:                     0.5em;
-    children:                    [ "dummy" , "listview" , "dummy" ];
+    spacing:                     5px;
+    padding:                     10px;
+    children:                    [ "listview" ];
     background-color:            transparent;
 }
 listview {
-    spacing:                     0em;
-    padding:                     1em;
+    padding:                     20px;
     enabled:                     true;
     columns:                     1;
-    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    expand:                      false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            @main-bg;
     text-color:                  @main-fg;
-    border-radius:               1.5em;
-}
-dummy {
-    background-color:            transparent;
+    border-radius:               30px;
 }
 
 
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     1em;
-    padding:                     0.4em;
+    spacing:                     30px;
+    padding:                     6px;
+    border-radius:               20px;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;
+}
+@media(max-aspect-ratio: 1.8) {
+    element {
+        orientation:             vertical;
+    }
 }
 element selected.normal {
     background-color:            @select-bg;
     text-color:                  @select-fg;
 }
 element-icon {
-    size:                        3em;
+    size:                        48px;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
@@ -131,17 +132,3 @@ element-text {
     text-color:                  inherit;
 }
 
-// Error message //
-error-message {
-    text-color:                  @main-fg;
-    background-color:            @main-bg;
-    text-transform:              capitalize;
-    children:                    [ "textbox" ];
-}
-
-textbox {
-    text-color:                  inherit;
-    background-color:            inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-}

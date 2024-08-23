@@ -2,102 +2,90 @@
 configuration {
     modi:                        "drun";
     show-icons:                  false;
+    font:                        "JetBrainsMono Nerd Font 9";
 }
 
-@theme "~/.config/rofi/theme.rasi"
+@theme "~/.config/rofi/themes/theme.rasi"
 
 
 // Main //
 window {
-    width:                       23em;
-    height:                      30em;
+    height:                      55%;
+    width:                       20%;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
     cursor:                      "default";
-    spacing:                     0em;
-    padding:                     0em;
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               15px;
     border-color:                @main-br;
-    background-color:            @main-bg;
+    background-color:            transparent;
 }
 mainbox {
     enabled:                     true;
-    spacing:                     0em;
-    padding:                     0.5em;
+    spacing:                     0px;
     orientation:                 vertical;
-    children:                    [ "wallbox" , "listbox" ];
+    children:                    [ "inputbar" , "listbox" ];
     background-color:            transparent;
-}
-wallbox {
-    spacing:                     0em;
-    padding:                     0em;
-    expand:                      false;
-    orientation:                 horizontal;
-    background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.blur", width);
-    children:                    [ "wallframe" , "inputbar" ];
-}
-wallframe {
-    width:                       5em;
-    spacing:                     0em;
-    padding:                     0em;
-    expand:                      false;
-    background-color:            @main-bg;
-    background-image:            url("~/.cache/hyde/wall.quad", width);
+    background-image:            url("~/.config/swww/wall.blur", height);
 }
 
 
 // Inputs //
 inputbar {
     enabled:                     true;
-    padding:                     0em;
+    padding:                     7px;
     children:                    [ "entry" ];
     background-color:            @main-bg;
-    expand:                      true;
 }
 entry {
     enabled:                     true;
-    padding:                     1.8em;
+    padding:                     70px;
     text-color:                  @main-fg;
-    background-color:            transparent;
+    background-color:            @main-bg;
+    background-image:            url("~/.config/swww/wall.blur", width);
 }
 
 
 // Lists //
 listbox {
-    spacing:                     0em;
-    padding:                     0em;
-    orientation:                 vertical;
-    children:                    [ "dummy" , "listview" , "dummy" ];
-    background-color:            transparent;
+    spacing:                     0px;
+    padding:                     6px;
+    children:                    [ "listview" ];
+    background-color:            @main-bg;
 }
 listview {
     enabled:                     true;
-    padding:                     0.5em;
     columns:                     1;
-    lines:                       11; 
     cycle:                       true;
-    fixed-height:                true;
-    fixed-columns:               false;
-    expand:                      false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                false;
+    fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
     text-color:                  @main-fg;
-}
-dummy {
-    spacing:                     0em;
-    padding:                     0em;
-    background-color:            transparent;
 }
 
 
 // Elements //
 element {
     enabled:                     true;
-    padding:                     0.5em;
+    spacing:                     0px;
+    padding:                     12px;
+    border-radius:               10px;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;
+}
+@media(max-aspect-ratio: 1.8) {
+    element {
+        orientation:             vertical;
+    }
 }
 element selected.normal {
     background-color:            @select-bg;
