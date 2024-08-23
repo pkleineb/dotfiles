@@ -15,6 +15,8 @@ in
       ./../../modules/nixos
     ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -66,6 +68,11 @@ in
   hardware.graphics = {
     # enables opengl
     enable = true;
+  };
+
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
   };
 
   # Configure network proxy if necessary
