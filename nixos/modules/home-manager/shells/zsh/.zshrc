@@ -6,10 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
-
-# Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+#ZSH=/usr/share/oh-my-zsh/
 
 # List of plugins used
 plugins=(
@@ -20,7 +17,7 @@ plugins=(
 	zsh-syntax-highlighting
     direnv
 )
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
