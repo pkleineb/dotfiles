@@ -8,8 +8,6 @@
   home.username = "paul";
   home.homeDirectory = "/home/paul";
 
-  zsh.default_shell = true;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
