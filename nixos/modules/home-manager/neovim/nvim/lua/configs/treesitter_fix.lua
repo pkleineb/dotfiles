@@ -1,1 +1,1 @@
-/nix/store/sc01rs2713a73s9mckdn3yjygkjmbrgc-home-manager-files/dotfiles/nixos/modules/home-manager/neovim/nvim/lua/configs/treesitter_fix.lua
+/nix/store/r029zdmi3lalfybmzi6rxv4x4kvnimb1-home-manager-files/dotfiles/nixos/modules/home-manager/neovim/nvim/lua/configs/treesitter_fix.lua
