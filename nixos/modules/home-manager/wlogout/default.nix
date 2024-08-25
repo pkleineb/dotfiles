@@ -5,8 +5,8 @@
     wlogout
   ];
 
-  home.file.".config/wlogout/" = {
+  home.file."./.config/wlogout/" = {
     recursive = true;
-    source = ./wlogout/;
+    source = ./wlogout;
   };
 }

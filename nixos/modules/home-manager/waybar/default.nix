@@ -5,8 +5,8 @@
     enable = true;
   };
 
-  home.file.".config/waybar/" = {
+  home.file."./.config/waybar/" = {
     recursive = true;
-    source = ./waybar/;
+    source = ./waybar;
   };
 }

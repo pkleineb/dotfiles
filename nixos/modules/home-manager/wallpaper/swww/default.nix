@@ -5,8 +5,8 @@
     swww
   ];
 
-  home.file.".config/swww/" = {
+  home.file."./.config/swww/" = {
     recursive = true;
-    source = ./swww/;
+    source = ./swww;
   };
 }

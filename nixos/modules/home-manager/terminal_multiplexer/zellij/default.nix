@@ -5,8 +5,8 @@
     enable = true;
   };
 
-  home.file.".config/zellij/" = {
+  home.file."./.config/zellij/" = {
     recursive = true;
-    source = ./zellij/;
+    source = ./zellij;
   };
 }

@@ -5,8 +5,8 @@
     pkgs.btop
   ];
 
-  home.file.".config/btop/" = {
+  home.file."./.config/btop/" = {
     recursive = true;
-    source = ./btop/;
+    source = ./btop;
   };
 }

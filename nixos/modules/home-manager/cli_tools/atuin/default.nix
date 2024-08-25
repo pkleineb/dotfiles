@@ -5,8 +5,8 @@
     atuin
   ];
 
-  home.file.".config/atuin/" = {
+  home.file."./.config/atuin/" = {
     recursive = true;
-    source = ./atuin/;
+    source = ./atuin;
   };
 }

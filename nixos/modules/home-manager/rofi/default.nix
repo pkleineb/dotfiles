@@ -5,8 +5,8 @@
     enable = true;
   };
 
-  home.file.".config/rofi/" = {
+  home.file."./.config/rofi/" = {
     recursive = true;
-    source = ./rofi/;
+    source = ./rofi;
   };
 }

@@ -14,6 +14,8 @@ let
     name = "treesitter-parsers";
     paths = treesitter_grammar.dependencies;
   };
+
+  local_path = ./.;
 in
 {
   home.packages = with pkgs; [
@@ -28,7 +30,7 @@ in
     ];
   };
 
-  home.file."./.config/nvim/lua/configs/treesitter_fix.lua".text = ''
+  home.file."./dotfiles/nixos/modules/home-manager/neovim/nvim/lua/configs/treesitter_fix.lua".text = ''
   local M = {}
 
   function M.run()
@@ -43,8 +45,8 @@ in
     source = treesitter_grammar;
   };
 
-  home.file.".config/nvim/" = {
+  home.file."./.config/nvim/" = {
     recursive = true;
-    source = ./nvim/;
+    source = ./nvim;
   };
 }

@@ -5,8 +5,8 @@
     dunst
   ];
 
-  home.file.".config/dunst/" = {
+  home.file."./.config/dunst/" = {
     recursive = true;
-    source = ./dunst/;
+    source = ./dunst;
   };
 }

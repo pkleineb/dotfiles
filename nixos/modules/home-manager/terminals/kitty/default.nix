@@ -5,8 +5,8 @@
     pkgs.kitty
   ];
 
-  home.file.".config/kitty/" = {
+  home.file."./.config/kitty/" = {
     recursive = true;
-    source = ./kitty/;
+    source = ./kitty;
   };
 }
