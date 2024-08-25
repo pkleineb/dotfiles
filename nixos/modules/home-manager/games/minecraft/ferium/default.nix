@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        ferium
-    ];
+  home.packages = with pkgs; [
+    ferium
+  ];
 }
