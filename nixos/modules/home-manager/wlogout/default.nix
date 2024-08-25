@@ -2,11 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    swww
+    wlogout
   ];
 
-  home.file.".config/swww/" = {
+  home.file.".config/wlogout/" = {
     recursive = true;
-    source = ./swww/;
+    source = ./wlogout/;
   };
 }

@@ -42,4 +42,9 @@ in
     recursive = true;
     source = treesitter_grammar;
   };
+
+  home.file.".config/nvim/" = {
+    recursive = true;
+    source = ./nvim/;
+  };
 }

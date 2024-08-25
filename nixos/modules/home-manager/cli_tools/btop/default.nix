@@ -2,11 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    swww
+    pkgs.btop
   ];
 
-  home.file.".config/swww/" = {
+  home.file.".config/btop/" = {
     recursive = true;
-    source = ./swww/;
+    source = ./btop/;
   };
 }

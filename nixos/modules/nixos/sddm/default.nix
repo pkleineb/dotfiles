@@ -2,7 +2,7 @@
 
 {
   services.displayManager.sddm = {
-    #enable = true;
+    enable = true;
     wayland = {
       enable = true;
     };

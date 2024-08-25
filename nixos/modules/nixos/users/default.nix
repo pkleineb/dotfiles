@@ -16,8 +16,13 @@ in
   };
 
   config = lib.mkIf user_config.enable {
+    programs.zsh = {
+      enable = true;
+    };
+
     users.users.${user_config.user_name} = {
       isNormalUser = true;
+      shell = pkgs.zsh;
       initialPassword = "12345";
       description = "main user";
       extraGroups = [ "wheel" ];
