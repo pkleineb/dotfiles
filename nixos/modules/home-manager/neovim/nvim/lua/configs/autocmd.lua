@@ -37,7 +37,7 @@ local autocmd = {
     {
         event = 'FileType',
         args = {
-            pattern = {"yaml", "yml", "json", "html", "htmldjango"},
+            pattern = {"yaml", "yml", "json", "html", "htmldjango", "nix"},
             callback = function()
                 vim.opt.tabstop = 2
                 vim.opt.shiftwidth = 2
