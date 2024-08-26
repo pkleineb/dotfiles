@@ -7,6 +7,6 @@
 
   home.file."./.config/rofi/" = {
     recursive = true;
-    source = ./rofi;
+    source = config.lib.file.mkOutOfStoreSymlink ./rofi;
   };
 }

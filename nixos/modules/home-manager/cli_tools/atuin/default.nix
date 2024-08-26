@@ -7,6 +7,6 @@
 
   home.file."./.config/atuin/" = {
     recursive = true;
-    source = ./atuin;
+    source = config.lib.file.mkOutOfStoreSymlink ./atuin;
   };
 }

@@ -7,6 +7,6 @@
 
   home.file."./.config/waybar/" = {
     recursive = true;
-    source = ./waybar;
+    source = config.lib.file.mkOutOfStoreSymlink ./waybar;
   };
 }

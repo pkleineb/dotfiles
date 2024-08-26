@@ -3,6 +3,6 @@
 {
   home.file."./.config/hypr/" = {
     recursive = true;
-    source = ./hypr;
+    source = config.lib.file.mkOutOfStoreSymlink ./hypr;
   };
 }

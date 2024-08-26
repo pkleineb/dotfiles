@@ -47,6 +47,6 @@ in
 
   home.file."./.config/nvim/" = {
     recursive = true;
-    source = ./nvim;
+    source = config.lib.file.mkOutOfStoreSymlink ./nvim;
   };
 }

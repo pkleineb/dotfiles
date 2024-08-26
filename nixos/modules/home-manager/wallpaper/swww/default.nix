@@ -7,6 +7,6 @@
 
   home.file."./.config/swww/" = {
     recursive = true;
-    source = ./swww;
+    source = config.lib.file.mkOutOfStoreSymlink ./swww;
   };
 }

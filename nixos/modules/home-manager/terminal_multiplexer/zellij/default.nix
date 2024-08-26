@@ -7,6 +7,6 @@
 
   home.file."./.config/zellij/" = {
     recursive = true;
-    source = ./zellij;
+    source = config.lib.file.mkOutOfStoreSymlink ./zellij;
   };
 }

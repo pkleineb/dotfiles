@@ -7,6 +7,6 @@
 
   home.file."./.config/dunst/" = {
     recursive = true;
-    source = ./dunst;
+    source = config.lib.file.mkOutOfStoreSymlink ./dunst;
   };
 }
