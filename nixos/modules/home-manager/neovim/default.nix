@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   treesitter_grammar = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.rust
