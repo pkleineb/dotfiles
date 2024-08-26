@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sddmback="/usr/share/sddm/themes/corners/backgrounds/bg.png"
 sddmconf="/usr/share/sddm/themes/corners/theme.conf"

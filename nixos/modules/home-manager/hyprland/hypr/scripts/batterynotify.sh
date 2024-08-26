@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ConfDir="${XDG_CONFIG_HOME:-$HOME/.config}"
 batterynotify_conf=$ConfDir/hypr/hyprdots-ctl/batterynotify.conf
