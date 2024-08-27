@@ -24,7 +24,7 @@ in
 
   networking = {
     hostName = host_name;
-    networkmanager.enable = true;
+    #networkmanager.enable = true;
 
     interfaces.enp34s0 = {
       ipv4.addresses = [{
@@ -39,6 +39,11 @@ in
     };
 
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
+
+    firewall = {
+      allowedTCPPorts = [ 57621 ];
+      allowedUDPPorts = [ 5353 ];
+    };
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -69,11 +74,13 @@ in
   hardware.graphics = {
     # enables opengl
     enable = true;
+    enable32Bit = true;
   };
 
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
+    package = pkgs.pulseaudioFull;
   };
 
   # Configure network proxy if necessary
