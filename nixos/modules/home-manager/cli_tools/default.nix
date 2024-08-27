@@ -4,4 +4,12 @@ let
 in
 {
   imports = import_dirs { dir=./.; };
+
+  home.packages = with pkgs; [
+    zoxide
+    ripgrep
+    fzf
+    direnv
+    eza
+  ];
 }
