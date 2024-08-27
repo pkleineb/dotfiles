@@ -2,7 +2,7 @@
 
 ScrDir=`dirname "$(realpath "$0")"`
 source $ScrDir/globalcontrol.sh
-roconf=$(readlink -f "~/.config/rofi/config.rasi")
+roconf="~/.config/rofi/config.rasi"
 
 
 # rofi action
