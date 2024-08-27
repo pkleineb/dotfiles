@@ -16,7 +16,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./machines/Hufflepuff/configuration.nix
-	./modules/nixos
+        ./modules/nixos
         inputs.home-manager.nixosModules.default
       ];
     };
