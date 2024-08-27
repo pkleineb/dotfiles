@@ -9,7 +9,7 @@ return {
 
             buttons = {
                 { label = "GitHub Profile", url = "https://github.com/pkleineb" },
-                { label = "Crazy cofings", url = "https://github.com/pkleineb/dotfiles" },
+                { label = "Crazy configs", url = "https://github.com/pkleineb/dotfiles" },
             },
         })
     end
