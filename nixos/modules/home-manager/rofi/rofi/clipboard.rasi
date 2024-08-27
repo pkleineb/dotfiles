@@ -2,90 +2,102 @@
 configuration {
     modi:                        "drun";
     show-icons:                  false;
-    font:                        "JetBrainsMono Nerd Font 9";
 }
 
-@theme "~/.config/rofi/themes/theme.rasi"
+@theme "~/.config/rofi/theme.rasi"
 
 
 // Main //
 window {
-    height:                      55%;
-    width:                       20%;
+    width:                       23em;
+    height:                      30em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
     cursor:                      "default";
-    spacing:                     0px;
-    padding:                     0px;
-    border:                      2px;
-    border-radius:               15px;
+    spacing:                     0em;
+    padding:                     0em;
     border-color:                @main-br;
-    background-color:            transparent;
+    background-color:            @main-bg;
 }
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
+    spacing:                     0em;
+    padding:                     0.5em;
     orientation:                 vertical;
-    children:                    [ "inputbar" , "listbox" ];
+    children:                    [ "wallbox" , "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.config/swww/wall.blur", height);
+}
+wallbox {
+    spacing:                     0em;
+    padding:                     0em;
+    expand:                      false;
+    orientation:                 horizontal;
+    background-color:            transparent;
+    background-image:            url("~/.cache/hyde/wall.blur", width);
+    children:                    [ "wallframe" , "inputbar" ];
+}
+wallframe {
+    width:                       5em;
+    spacing:                     0em;
+    padding:                     0em;
+    expand:                      false;
+    background-color:            @main-bg;
+    background-image:            url("~/.cache/hyde/wall.quad", width);
 }
 
 
 // Inputs //
 inputbar {
     enabled:                     true;
-    padding:                     7px;
+    padding:                     0em;
     children:                    [ "entry" ];
     background-color:            @main-bg;
+    expand:                      true;
 }
 entry {
     enabled:                     true;
-    padding:                     70px;
+    padding:                     1.8em;
     text-color:                  @main-fg;
-    background-color:            @main-bg;
-    background-image:            url("~/.config/swww/wall.blur", width);
+    background-color:            transparent;
 }
 
 
 // Lists //
 listbox {
-    spacing:                     0px;
-    padding:                     6px;
-    children:                    [ "listview" ];
-    background-color:            @main-bg;
+    spacing:                     0em;
+    padding:                     0em;
+    orientation:                 vertical;
+    children:                    [ "dummy" , "listview" , "dummy" ];
+    background-color:            transparent;
 }
 listview {
     enabled:                     true;
+    padding:                     0.5em;
     columns:                     1;
+    lines:                       11; 
     cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                false;
-    fixed-columns:               true;
+    fixed-height:                true;
+    fixed-columns:               false;
+    expand:                      false;
     cursor:                      "default";
     background-color:            transparent;
     text-color:                  @main-fg;
+}
+dummy {
+    spacing:                     0em;
+    padding:                     0em;
+    background-color:            transparent;
 }
 
 
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     0px;
-    padding:                     12px;
-    border-radius:               10px;
+    padding:                     0.5em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;
-}
-@media(max-aspect-ratio: 1.8) {
-    element {
-        orientation:             vertical;
-    }
 }
 element selected.normal {
     background-color:            @select-bg;
