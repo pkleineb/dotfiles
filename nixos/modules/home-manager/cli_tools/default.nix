@@ -12,4 +12,8 @@ in
     direnv
     eza
   ];
+
+  services.playerctld = {
+    enable = true;
+  };
 }
