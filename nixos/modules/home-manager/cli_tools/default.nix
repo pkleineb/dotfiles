@@ -11,6 +11,7 @@ in
     fzf
     direnv
     eza
+    jq
   ];
 
   services.playerctld = {
