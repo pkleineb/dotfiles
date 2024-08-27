@@ -7,6 +7,6 @@
 
   home.file."./.config/btop/" = {
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink ./btop;
+    source = config.lib.meta.mk_out_of_store_symlink ./btop;
   };
 }

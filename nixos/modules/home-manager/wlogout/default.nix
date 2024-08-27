@@ -7,6 +7,6 @@
 
   home.file."./.config/wlogout/" = {
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink ./wlogout;
+    source = config.lib.meta.mk_out_of_store_symlink ./wlogout;
   };
 }

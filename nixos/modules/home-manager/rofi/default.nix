@@ -1,12 +1,12 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
-  programs.rofi = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    rofi
+  ];
 
   home.file."./.config/rofi/" = {
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink ./rofi;
+    source = config.lib.meta.mk_out_of_store_symlink ./rofi;
   };
 }

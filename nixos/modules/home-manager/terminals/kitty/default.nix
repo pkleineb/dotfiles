@@ -7,6 +7,6 @@
 
   home.file."./.config/kitty/" = {
     recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink ./kitty;
+    source = config.lib.meta.mk_out_of_store_symlink ./kitty;
   };
 }

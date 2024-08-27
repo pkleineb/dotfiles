@@ -9,7 +9,7 @@
       enable = true;
     };
 
-    home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink ./.zshrc;
-    home.file.".zshenv".source = config.lib.file.mkOutOfStoreSymlink ./.zshenv;
+    home.file.".zshrc".source = config.lib.meta.mk_out_of_store_symlink ./.zshrc;
+    home.file.".zshenv".source = config.lib.meta.mk_out_of_store_symlink ./.zshenv;
   };
 }
