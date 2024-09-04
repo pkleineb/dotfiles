@@ -6,6 +6,13 @@
     xwayland.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     MOZ_ENABLE_WAYLAND = 1;
