@@ -3,5 +3,6 @@
 {
   home.packages = with pkgs; [
     steam
+    protonup-qt
   ];
 }
