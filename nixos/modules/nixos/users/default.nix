@@ -24,8 +24,12 @@ in
       isNormalUser = true;
       shell = pkgs.zsh;
       initialPassword = "12345";
-      description = "main user";
+      description = ${user_config.user_name};
       extraGroups = [ "wheel" ];
+    };
+
+    environment.sessionVariables = {
+      SHELL = pkgs.zsh;
     };
   };
 }
