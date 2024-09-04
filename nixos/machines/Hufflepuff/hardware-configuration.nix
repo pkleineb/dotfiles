@@ -24,7 +24,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/data" =
+  fileSystems."/home/paul/data" =
     { device = "/dev/disk/by-uuid/e6b94bd8-c839-4685-966b-f569eb9f91a7";
       fsType = "btrfs";
     };
