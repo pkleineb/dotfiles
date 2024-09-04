@@ -77,6 +77,8 @@ in
     enable32Bit = true;
   };
 
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
