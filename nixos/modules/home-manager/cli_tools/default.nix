@@ -11,6 +11,7 @@ in
     fzf
     eza
     jq
+    bat
   ];
 
   services.playerctld = {
