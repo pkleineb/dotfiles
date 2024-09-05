@@ -14,15 +14,15 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local servers = {
-            --{
-            --    name = "pylyzer",
-            --},
+            {
+                name = "pylyzer",
+            },
             {
                 name = "jedi_language_server",
             },
-            --{
-            --    name = "ruff_lsp",
-            --},
+            {
+                name = "ruff_lsp",
+            },
             {
                 name = "rust_analyzer",
             },
