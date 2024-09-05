@@ -9,10 +9,8 @@ in
     zoxide
     ripgrep
     fzf
-    direnv
     eza
     jq
-    direnv
   ];
 
   services.playerctld = {
