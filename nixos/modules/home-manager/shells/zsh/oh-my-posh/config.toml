@@ -1,0 +1,74 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+console_title_template = "{{if .Root}} ⚡ {{end}}{{.UserName}} ➔ 📁{{.Folder}}"
+#final_space = true
+version = 2
+
+[[blocks]]
+alignment = "right"
+type = "rprompt"
+
+  [[blocks.segments]]
+  background = "#003543"
+  foreground = "#ffffff"
+  style = "plain"
+  template = "  {{ .CurrentDate | date .Format }} "
+  type = "time"
+
+  [[blocks.segments]]
+  background = "#83769c"
+  foreground = "#ffffff"
+  style = "plain"
+  template = "  {{ .FormattedMs }} "
+  type = "executiontime"
+
+    [blocks.segments.properties]
+    always_enabled = true
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+  [[blocks.segments]]
+  background = "#61AFEF"
+  foreground = "#ffffff"
+  style = "diamond"
+  template = "{{if .Root}}  {{.UserName}} {{else}} {{.UserName}} {{end}}"
+  trailing_diamond = ""
+  type = "session"
+
+    [blocks.segments.properties]
+    display_host = false
+
+  [[blocks.segments]]
+  background = "#C678DD"
+  foreground = "#ffffff"
+  powerline_symbol = ""
+  style = "powerline"
+  template = " {{ .Path }} "
+  type = "path"
+
+    [blocks.segments.properties]
+    folder_icon = ""
+    folder_separator_icon = "  "
+    max_depth = 2
+    style = "agnoster_short"
+
+  [[blocks.segments]]
+  background = "#95ffa4"
+  foreground = "#193549"
+  powerline_symbol = ""
+  style = "powerline"
+  template = " {{ .HEAD }} "
+  type = "git"
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+  
+  [[blocks.segments]]
+  foreground = "#f1184c",
+  style = "plain"
+  template = "\u279c "
+  type = "text"
+
