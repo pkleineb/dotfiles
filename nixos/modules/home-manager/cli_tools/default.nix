@@ -12,6 +12,7 @@ in
     direnv
     eza
     jq
+    direnv
   ];
 
   services.playerctld = {
