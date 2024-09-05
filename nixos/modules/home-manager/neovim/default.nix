@@ -31,14 +31,13 @@ in
 
     extraPackages = with pkgs; [
       pylyzer
-      python3.12-jedi-language-server
-      ruff_lsp
-      rust_analyzer
-      lua_ls
-      tsserver
-      html
-      cssls
-      vimls
+      python311Packages.jedi-language-server
+      ruff-lsp
+      rust-analyzer
+      lua-language-server
+      biome
+      vscode-langservers-extracted
+      vim-language-server
     ];
   };
 

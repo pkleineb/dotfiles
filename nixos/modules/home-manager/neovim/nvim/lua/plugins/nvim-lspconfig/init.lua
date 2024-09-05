@@ -57,7 +57,7 @@ return {
                 end,
             },
             {
-                name = "tsserver",
+                name = "biome",
             },
             {
                 name = "html",
