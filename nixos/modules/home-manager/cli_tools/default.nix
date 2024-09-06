@@ -12,6 +12,7 @@ in
     eza
     jq
     bat
+    wl-clipboard-rs
   ];
 
   services.playerctld = {
