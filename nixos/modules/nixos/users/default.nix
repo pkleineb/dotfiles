@@ -20,17 +20,12 @@ in
       enable = true;
     };
 
-    system.activationScripts.zlinkZsh = ''
-      mkdir -p /usr/bin
-      ln -sfn ${pkgs.zsh}/bin/zsh /usr/bin/zsh
-    '';
-
     users.users.${user_config.user_name} = {
       isNormalUser = true;
       shell = pkgs.zsh;
       initialPassword = "12345";
       description = user_config.user_name;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" ];
     };
 
   };
