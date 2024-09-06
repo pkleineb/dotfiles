@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
-  oh_my_posh_config_file = "oh-my-posh/config.toml";
+  oh_my_posh_config_dir = "oh-my-posh";
+  oh_my_posh_config_file = "config.toml";
 in
 {
   options = {
@@ -11,10 +12,7 @@ in
       oh-my-posh
     ];
 
-    home.file."./.config/${oh_my_posh_config_file}" = {
-      recursive = true;
-      source = config.lib.meta.mk_out_of_store_symlink "./${oh_my_posh_config_file}";
-    };
+    home.file."./.config/${oh_my_posh_config_dir}/".source = config.lib.meta.mk_out_of_store_symlink "./${oh_my_posh_config_dir}";
 
     programs.zsh = {
       enable = true;
@@ -88,7 +86,7 @@ in
       initExtra = ''
         eval "$(atuin init zsh)"
         eval "$(zoxide init zsh)"
-        eval "$(oh-my-posh init zsh --config ./.config/${oh_my_posh_config_file})"
+        eval "$(oh-my-posh init zsh --config $HOME/.config/${oh_my_posh_config_dir}/${oh_my_posh_config_file})"
       '';
     };
   };
