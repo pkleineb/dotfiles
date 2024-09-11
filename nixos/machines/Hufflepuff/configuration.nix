@@ -12,8 +12,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ./../../modules/nixos
-    ];
+    ] ++ (inputs.self.outputs.scripts.import_all_modules { lib=lib; dir=./../../modules/nixos; });
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;

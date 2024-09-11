@@ -1,10 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [
-    ../../modules/home-manager
-  ];
-
+  imports = inputs.self.outputs.scripts.import_all_modules { lib=lib; dir=./../../modules/nixos; };
   home.username = "paul";
   home.homeDirectory = "/home/paul";
 
