@@ -1,8 +1,6 @@
 { pkgs, config, lib, ... }: 
 
 {
-  imports = import_dirs { dir=./.; };
-
   config.lib.meta = {
     # my home manager module dir this although not being a fully absolute path needs us to use
     # --impure when rebuilding
