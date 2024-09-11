@@ -1,10 +1,5 @@
-{ pkgs, inputs, ... }: 
-let
-  import_dirs = inputs.self.outputs.scripts.import_all_modules;
-in
+{ pkgs, ... }: 
 {
-  imports = import_dirs { dir=./.; };
-
   home.packages = with pkgs; [
     zoxide
     ripgrep

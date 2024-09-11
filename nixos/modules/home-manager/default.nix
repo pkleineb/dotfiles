@@ -1,7 +1,5 @@
-{ pkgs, inputs, config, lib, ... }: 
-let
-  import_dirs = inputs.self.outputs.scripts.import_all_modules;
-in
+{ pkgs, config, lib, ... }: 
+
 {
   imports = import_dirs { dir=./.; };
 
