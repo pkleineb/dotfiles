@@ -1,15 +1,19 @@
-{ dir, ... }:
+{ lib, dir, ... }:
+
 let
-  # finds all entries in current dir
-  entries = builtins.readDir dir;
-
-  imports = builtins.attrValues(
-    builtins.mapAttrs(name: type: # maps the keys to the values using the function specified
-      if type == "directory" then "${dir}/${name}" else null
+  get_dir = dir: lib.mapAttrs
+    (file: type:
+      if type == "directory" then get_dir "${dir}/${file}" else type
     )
-    entries
-  );
+    (builtins.readDir dir);
 
-  valid_imports = builtins.filter(path: path != null) imports;
+  files = dir: lib.collect lib.isString (lib.mapAttrsRecursive (path: type: lib.concatStringsSep "/" path) (get_dir dir));
+
+  valid_files = dir : lib.map
+    (file : dir + "/${file}")
+    (lib.filter
+      (file: lib.hasSuffix ".nix" file)
+      (files dir)
+    );
 in
-  valid_imports
+  valid_files dir
