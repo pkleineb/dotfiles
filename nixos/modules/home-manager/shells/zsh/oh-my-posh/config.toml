@@ -8,7 +8,7 @@ newline = true
 type = "prompt"
 
   [[blocks.segments]]
-  foreground = "#E5C07B"
+  foreground = "#45F1C2"
   style = "plain"
   template = "[{{ .UserName }}@{{ .HostName }}]"
   type = "text"
@@ -16,14 +16,14 @@ type = "prompt"
   [[blocks.segments]]
   type = "shell"
   style = "plain"
-  foreground = "#E06C75"
-  template = "  {{ .Name }}"
+  foreground = "#14A5AE"
+  template = "<#ffffff>--</>[ {{ .Name }}]"
 
-[blocks.segments.properties.mapped_shell_names]
-pwsh = "Shell"
-powershell = "Shell"
-cmd = "Cmd"
-bash = "Bash"
+  [[blocks.segments]]
+  type = "text"
+  style = "plain"
+  foreground = "#B388FF"
+  template = "{{ if .Env.IN_NIX_SHELL }}<#ffffff>--</>[󱄅 nix-{{ .Env.IN_NIX_SHELL }}]{{ end }}"
 
   [[blocks.segments]]
   foreground = "#F3C267"
@@ -34,7 +34,7 @@ bash = "Bash"
   "{{ if gt .Behind 0 }}#B388FF{{ end }}"
 ]
   style = "plain"
-  template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+  template = "<#ffffff>--</>[{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}]"
   type = "git"
 
     [blocks.segments.properties]
@@ -71,7 +71,7 @@ newline = true
 type = "prompt"
 
   [[blocks.segments]]
-  foreground = "#61AFEF"
+  foreground = "#0CA0D8"
   style = "plain"
   template = " {{ .Path }}"
   type = "path"
@@ -93,6 +93,6 @@ type = "prompt"
   [[blocks.segments]]
   foreground = "#E06C75"
   style = "plain"
-  template = "❯"
+  template = "→"
   type = "text"
 
