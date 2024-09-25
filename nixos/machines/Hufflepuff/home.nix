@@ -8,13 +8,10 @@ in
   home.username = "paul";
   home.homeDirectory = "/home/paul";
 
-  xsession = {
-    enable = true;
-    pointerCursor = {
-      name = pointer_name;
-      size = pointer_size;
-      package = pkgs.bibata-cursors;
-    };
+  home.pointerCursor = {
+    name = pointer_name;
+    size = pointer_size;
+    package = pkgs.bibata-cursors;
   };
 
   gtk = {
