@@ -21,6 +21,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking = {
     hostName = host_name;
     #networkmanager.enable = true;
