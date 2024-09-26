@@ -3,9 +3,32 @@
 {
   programs.firefox = {
     enable = true;
+
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
+        CaptivePortal = true;
+
         DisableTelementry = true;
+        DisablePocket = true;
+        DisableFirefoxStudies = true;
+        DisableFirefoxAccounts = true;
+
+        FirefoxHome = {
+          Pocket = false;
+          Snippets = false;
+        };
+
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          SkipOnboarding = true;
+        };
+
+        # this is currently not working and search engine preferences
+        # are stored in search.json.mozlz4 and really there isn't a
+        # great way to change that file... stupid
+        SearchEngines = {
+          Default = "DuckDuckGo";
+        };
 
         ExtensionSettings = {
           # uBlock Origin:
@@ -111,6 +134,8 @@
             }
           ];
           "browser.startup.page" = 3;
+          "browser.urlbar.placeholderName" = "DuckDuckGo";
+          "browser.urlbar.placeholderName.private" = "DuckDuckGo";
         };
       };
     };
