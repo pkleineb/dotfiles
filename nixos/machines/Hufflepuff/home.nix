@@ -1,17 +1,23 @@
 { config, lib, pkgs, inputs, ... }:
 let
-  pointer_name = "Bibata Modern Ice";
-  pointer_size = 48;
+  pointer_name = "Bibata-Modern-Ice";
+  pointer_size = 20;
+  pointer_package = pkgs.bibata-cursors;
+
+  pointer = {
+    name = pointer_name;
+    size = pointer_size;
+    package = pointer_package;
+  };
 in
 {
   imports = inputs.self.outputs.scripts.import_all_modules { lib=lib; dir=./../../modules/home-manager; };
   home.username = "paul";
   home.homeDirectory = "/home/paul";
 
-  home.pointerCursor = {
-    name = pointer_name;
-    size = pointer_size;
-    package = pkgs.bibata-cursors;
+  home.pointerCursor = pointer // {
+    x11.enable = true;
+    gtk.enable = true;
   };
 
   gtk = {
@@ -21,11 +27,7 @@ in
       package = pkgs.nordic;
     };
 
-    cursorTheme = {
-      name = pointer_name;
-      size = pointer_size;
-      package = pkgs.bibata-cursors;
-    };
+    cursorTheme = pointer;
   };
 
   # The home.packages option allows you to install Nix packages into your
