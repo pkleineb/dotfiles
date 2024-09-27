@@ -52,6 +52,7 @@ in
         plugins = [
           "git"
           "sudo"
+          "direnv"
           #"zsh-256color"
           #"zsh-autosuggestions"
           #"zsh-syntax-highlighting"
@@ -86,7 +87,6 @@ in
       initExtra = ''
         eval "$(atuin init zsh)"
         eval "$(zoxide init zsh)"
-        eval "$(direnv init zsh)"
         eval "$(oh-my-posh init zsh --config $HOME/.config/${oh_my_posh_config_dir}/${oh_my_posh_config_file})"
       '';
     };
