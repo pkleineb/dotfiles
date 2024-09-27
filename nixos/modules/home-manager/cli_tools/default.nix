@@ -10,6 +10,7 @@
     bat
     wl-clipboard-rs
     unzip
+    direnv
   ];
 
   services.playerctld = {
