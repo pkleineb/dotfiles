@@ -23,9 +23,13 @@ in
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  boot.kernelParams = [ "systemd.show_status=true" ];
+
   networking = {
     hostName = host_name;
-    #networkmanager.enable = true;
+
+    dhcpcd.enable = false;
+    useNetworkd = true;
 
     interfaces.enp34s0 = {
       ipv4.addresses = [{
@@ -80,11 +84,20 @@ in
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  hardware.pulseaudio = {
+  services.pipewire = {
     enable = true;
-    support32Bit = true;
-    package = pkgs.pulseaudioFull;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
   };
+
+  # hardware.pulseaudio = {
+  #   enable = true;
+  #   support32Bit = true;
+  #   package = pkgs.pulseaudioFull;
+  # };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
