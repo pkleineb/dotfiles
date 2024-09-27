@@ -10,6 +10,7 @@ in
   config = {
     home.packages = with pkgs; [
       oh-my-posh
+      direnv
     ];
 
     home.file."./.config/${oh_my_posh_config_dir}/".source = config.lib.meta.mk_out_of_store_symlink "./${oh_my_posh_config_dir}";
