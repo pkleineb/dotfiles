@@ -10,8 +10,13 @@ in
   config = {
     home.packages = with pkgs; [
       oh-my-posh
-      direnv
     ];
+
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
 
     home.file."./.config/${oh_my_posh_config_dir}/".source = config.lib.meta.mk_out_of_store_symlink "./${oh_my_posh_config_dir}";
 
@@ -53,7 +58,6 @@ in
         plugins = [
           "git"
           "sudo"
-          "direnv"
           #"zsh-256color"
           #"zsh-autosuggestions"
           #"zsh-syntax-highlighting"
