@@ -1,5 +1,6 @@
 return {
     "pkleineb/themepicker.nvim",
+    lazy = false,
 
     keys = {
         { "<leader>t", "<cmd>ThemepickerRun<cr>", desc = "[Themepicker] Constructs Themepicker window" },
