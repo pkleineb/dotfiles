@@ -14,7 +14,7 @@
       owner = "aczw";
       repo = "sddm-theme-corners";
       rev = "6ff0ff4";
-      sha256 = "0cf0q28c7cg36fabjpxf1lqp9snz1ndf2h8935d9q3ky1lg3c4zb";
+      sha256 = "0iiasrbl7ciyhq3z02la636as915zk9ph063ac7vm5iwny8vgwh8";
     };
   };
 }
