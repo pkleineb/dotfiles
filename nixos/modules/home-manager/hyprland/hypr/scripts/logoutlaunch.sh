@@ -46,7 +46,7 @@ export WindBg=`[ "$gtkMode" == "dark" ] && ( echo "rgba(0,0,0,0.5)" ) || ( echo 
 if [ "$EnableWallDcol" -eq 1 ] ; then
     export wbarTheme="Wall-Dcol"
 else
-    export wbarTheme="${gtkTheme}"
+    export wbarTheme="Tokyo-Night"
 fi
 
 # eval hypr border radius
