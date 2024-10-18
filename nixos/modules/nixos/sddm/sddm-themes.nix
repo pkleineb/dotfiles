@@ -11,10 +11,10 @@
     '';
 
     src = fetchFromGitHub {
-      owner = "aczw";
+      owner = "pkleineb";
       repo = "sddm-theme-corners";
-      rev = "6ff0ff4";
-      sha256 = "0iiasrbl7ciyhq3z02la636as915zk9ph063ac7vm5iwny8vgwh8";
+      rev = "b94fb11";
+      sha256 = "0i5x5cm2xn54f4qvla3dr3ih9qrkyrj8yagw6d9a5pb2d05jx0kb";
     };
   };
 }
