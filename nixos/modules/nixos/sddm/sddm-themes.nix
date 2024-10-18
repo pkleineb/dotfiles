@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub }:
+{ stdenv, fetchFromGitHub, pkgs }:
 
 {
   corners = stdenv.mkDerivation rec {
@@ -7,14 +7,14 @@
     dontBuild = true;
     installPhase = ''
       mkdir -p $out/share/sddm/themes
-      cp -aR $src $out/share/sddm/themes/corners
+      cp -aR $src/corners $out/share/sddm/themes/corners
     '';
 
     src = fetchFromGitHub {
       owner = "pkleineb";
       repo = "sddm-theme-corners";
-      rev = "b94fb11";
-      sha256 = "0i5x5cm2xn54f4qvla3dr3ih9qrkyrj8yagw6d9a5pb2d05jx0kb";
+      rev = "93424cd";
+      sha256 = "0vnhr8p7b0qi58wmzqq31kf7pkarjdcghkic394x9jvivirfvic7";
     };
   };
 }
