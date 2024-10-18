@@ -8,8 +8,8 @@ ThemeCtl="$ConfDir/hypr/theme.ctl"
 cacheDir="$HOME/.cache/hyprdots"
 
 # theme var
-#gtkTheme=`gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g"`
-#gtkMode=`gsettings get org.gnome.desktop.interface color-scheme | sed "s/'//g" | awk -F '-' '{print $2}'`
+gtkTheme=`gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g"`
+gtkMode=`gsettings get org.gnome.desktop.interface color-scheme | sed "s/'//g" | awk -F '-' '{print $2}'`
 
 # hypr var
 hypr_border=`hyprctl -j getoption decoration:rounding | jq '.int'`
