@@ -30,9 +30,15 @@ in
     cursorTheme = pointer;
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.qt5ct
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
