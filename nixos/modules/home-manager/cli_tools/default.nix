@@ -8,7 +8,6 @@
     jq
     envsubst
     bat
-    wl-clipboard-rs
     unzip
   ];
 

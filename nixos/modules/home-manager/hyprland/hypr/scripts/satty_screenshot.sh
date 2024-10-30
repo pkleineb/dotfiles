@@ -1,1 +1,1 @@
-grim -g "$(slurp -o -c '#00000000')" - | satty --filename - --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --annotation-size-factor 0.5 --early-exit --copy-command wl-copy
+grim -g "$(slurp -o -c '#00000000')" - | satty --filename - --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --annotation-size-factor 0.5 --early-exit --copy-command 'wl-copy'
