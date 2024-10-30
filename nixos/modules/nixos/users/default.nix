@@ -25,7 +25,7 @@ in
       shell = pkgs.zsh;
       initialPassword = "12345";
       description = user_config.user_name;
-      extraGroups = [ "wheel" "networkmanager" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" "audio" "pipewire" ];
     };
 
   };
