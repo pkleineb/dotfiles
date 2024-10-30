@@ -38,6 +38,7 @@ in
       biome
       vscode-langservers-extracted
       vim-language-server
+      ltex-ls
     ];
   };
 
