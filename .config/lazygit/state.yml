@@ -1,14 +1,8 @@
 lastupdatecheck: 1717952773
 recentrepos:
-    - /home/paul/Documents/dev/Rust/zellij
-    - /home/paul/Documents/dev/Rust/bevy_game
-    - /home/paul/Documents/dev/lua/themepicker.nvim
-    - /home/paul/Documents/dev/Rust/lazyissues
-    - /home/paul/Documents/studium
-    - /home/paul/.config/nvim
-    - /home/paul/Documents/dev/Python/django-projects/PencilCase
     - /home/paul/dotfiles
-    - /home/paul/Documents/dev/Rust/game-engine
+    - /home/paul/Documents/dev/lua/themepicker.nvim
+    - /home/paul/Documents/studium
 startuppopupversion: 5
 lastversion: 0.44.1
 customcommandshistory:
