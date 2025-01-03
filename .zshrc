@@ -5,12 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
-
-# Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
 # List of plugins used
 plugins=(
 	git
@@ -21,7 +15,6 @@ plugins=(
 	archlinux
     direnv
 )
-source $ZSH/oh-my-zsh.sh
 
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
@@ -91,8 +84,6 @@ alias mkdir='mkdir -p'
 # Fixes "Error opening terminal: xterm-kitty" when using the default kitty term to open some programs through ssh
 #alias ssh='kitten ssh' <- this shit created an error and did not fix anything
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
