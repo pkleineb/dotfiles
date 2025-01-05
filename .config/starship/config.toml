@@ -3,9 +3,20 @@
 ###########@##################
 
 format = '''
-\[[$username@$hostname](#45F1C2)\][--](red)\[$shell\][--](red)\[$directory\][--](red)\[$git_branch $git_status\]$all
+\[[$username@$hostname](#45F1C2)\][--](red)\[$shell\][--](red)\[$directory\]${custom.git_start_seperator}$git_branch$git_status${custom.git_end_seperator}
 [→ ](#E06C75)
 '''
+
+[custom.git_end_seperator]
+when = "true"
+require_repo = true
+format = '\]'
+
+[custom.git_start_seperator]
+when = "true"
+require_repo = true
+style = 'red'
+format = '[--]($style)\['
 
 [username]
 show_always = true
@@ -53,7 +64,7 @@ diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 staged = '  ${count}'
 modified = '  ${count}'
 
-format = '[$ahead_behind](#F3C267)[$all_status](#FF9248)'
+format = ' [$ahead_behind](#F3C267)[$all_status](#FF9248)'
 
 ####@###########################
 # ----- NerdFont Symbols ----- #
