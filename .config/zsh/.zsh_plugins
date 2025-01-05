@@ -1,0 +1,12 @@
+# Oh My Zsh Plugins
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/archlinux
+ohmyzsh/ohmyzsh path:plugins/direnv
+
+# other plugins? idk how to name this
+chrissicool/zsh-256color # adds multicolor terminal idk if I need this
+zsh-users/zsh-autosuggestions # autosuggesting commands
+zsh-users/zsh-syntax-highlighting # IMPORTANT
+
