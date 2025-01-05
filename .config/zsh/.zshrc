@@ -72,3 +72,7 @@ alias mkdir='mkdir -p'
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+if [[ -z $(echo $ZELLIJ_SESSION_NAME) ]]; then
+  zellij
+fi
