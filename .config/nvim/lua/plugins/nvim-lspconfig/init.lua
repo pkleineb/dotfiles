@@ -83,6 +83,9 @@ return {
             {
                 name = "dartls",
             },
+            {
+                name = "jdtls",
+            },
         }
 
         -- starts the servers automatically using the default config and specific configs set in the local
