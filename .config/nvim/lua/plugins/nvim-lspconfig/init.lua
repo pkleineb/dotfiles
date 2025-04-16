@@ -41,13 +41,11 @@ return {
             },
             {
                 name = "lua_ls",
+                before_start = function ()
+                    require("neodev").setup({})
+                end,
                 config = {
                     on_init = function(client)
-                        require("neodev").setup({})
-                        local path = client.workspace_folders[1].name
-
-                        if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then return end
-
                         client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
                             runtime = {
                             -- Tell the language server which version of Lua you're using
@@ -91,11 +89,12 @@ return {
         for _, server in ipairs(servers) do
             local config = server.config or {}
             local setup_config = { capabilities = capabilities }
+            setup_config = vim.tbl_deep_extend("force", setup_config, config)
 
-            for key, value in pairs(config) do
-                setup_config[key] = value
+            if server.before_start ~= nil then
+                server.before_start()
             end
-            --if server.before_start ~= nil then server.before_start() end
+
             lspconfig[server.name].setup(setup_config)
         end
 
