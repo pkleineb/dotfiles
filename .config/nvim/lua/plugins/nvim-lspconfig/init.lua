@@ -86,6 +86,9 @@ return {
             {
                 name = "jdtls",
             },
+            {
+                name = "clangd",
+            },
         }
 
         -- starts the servers automatically using the default config and specific configs set in the local
