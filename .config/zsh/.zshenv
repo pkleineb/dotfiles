@@ -1,4 +1,5 @@
 . "$HOME/.cargo/env"
+export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SHELL="/usr/bin/zsh"
