@@ -123,13 +123,31 @@ while getopts "nps" option ; do
     esac
 done
 
+# Function to start swww daemon if not running
+start_swww_daemon()
+{
+    # Check if daemon is already running
+    if ! swww query >/dev/null 2>&1; then
+        echo "Starting swww daemon..."
 
+        if command -v swww-daemon >/dev/null 2>&1; then
+            swww-daemon &
+            sleep 2
+        else
+            echo "ERROR: swww-daemon not found. Please ensure swww 0.10.0+ is properly installed."
+            exit 1
+        fi
+
+        # Verify daemon started successfully
+        if ! swww query >/dev/null 2>&1; then
+            echo "ERROR: Failed to start swww daemon"
+            exit 1
+        fi
+        echo "swww daemon started successfully"
+    fi
+}
+
+
+start_swww_daemon
 # check swww daemon and set wall
-
-swww query
-if [ $? -eq 1 ] ; then
-    swww init
-fi
-
 Wall_Set
-
