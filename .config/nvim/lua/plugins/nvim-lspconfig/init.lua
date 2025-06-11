@@ -37,6 +37,9 @@ return {
                             end
                         })
                     end,
+                    diagnostics = {
+                        enable = true,
+                    },
                 },
             },
             {
