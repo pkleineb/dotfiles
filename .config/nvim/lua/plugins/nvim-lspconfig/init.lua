@@ -23,6 +23,7 @@ return {
             --{
             --    name = "ruff_lsp",
             --},
+            --[[
             {
                 name = "rust_analyzer",
                 config = {
@@ -41,7 +42,7 @@ return {
                         enable = true,
                     },
                 },
-            },
+            },]]
             {
                 name = "lua_ls",
                 before_start = function ()
