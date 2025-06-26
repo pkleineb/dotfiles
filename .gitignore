@@ -1,3 +1,5 @@
 lazy-lock.json
 
 **treesitter_fix.lua
+
+.config/lazygit/state.*
