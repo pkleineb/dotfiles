@@ -1,0 +1,3 @@
+[submodule ".config/sddm-theme-corners"]
+	path = .config/sddm-theme-corners
+	url = https://github.com/pkleineb/sddm-theme-corners
