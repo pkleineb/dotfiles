@@ -10,7 +10,6 @@ return {
     },
 
     config = function()
-        local lspconfig = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local servers = {
@@ -88,10 +87,10 @@ return {
                 name = "dartls",
             },
             {
-                name = "jdtls",
+                name = "clangd",
             },
             {
-                name = "clangd",
+                name = "jdtls",
             },
         }
 
@@ -105,7 +104,7 @@ return {
                 server.before_start()
             end
 
-            lspconfig[server.name].setup(setup_config)
+            vim.lsp.config(server.name, setup_config)
         end
 
         local luasnip = require("luasnip")
