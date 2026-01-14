@@ -1,5 +1,36 @@
 # See dunst(5) for all configuration options
 
+[Type-1]
+    summary = "t1"
+    format = "<b>%a</b>"
+
+[Type-2]
+    summary = "t2"
+    format = "<span size="250%">%a</span>\n%b"
+
+[urgency_critical]
+    background = "#24283b"
+    foreground = "#E5E4D9"
+    frame_color = "#F7768E"
+    icon = "~/.config/dunst/icons/critical.svg"
+    timeout = 0
+    # Icon for notifications with critical urgency, uncomment to enable
+    #default_icon = /path/to/icon
+
+[urgency_low]
+    background = "#24283b"
+    foreground = "#E5E4D9"
+    frame_color = "#9ECE6A"
+    icon = "~/.config/dunst/icons/hyprdots.svg"
+    timeout = 5
+
+[urgency_normal]
+    background = "#24283b"
+    foreground = "#E5E4D9"
+    frame_color = "#73DACA"
+    icon = "~/.config/dunst/icons/hyprdots.svg"
+    timeout = 5
+
 [global]
     ### Display ###
 
@@ -17,29 +48,29 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = mouse
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (250, 250)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = (50, 200)
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = 20x20
+    offset = 5x5
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 20
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -82,17 +113,17 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 5
 
     # Horizontal padding.
-    horizontal_padding = 8
+    # horizontal_padding = 8
 
     # Padding between text and icon.
-    text_icon_padding = 10
+    text_icon_padding = 15
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     #frame_color = "#eba0ac"
@@ -123,7 +154,7 @@
 
     ### Text ###
 
-    font = mononoki Nerd Font 8
+    font = CaskaydiaCove Nerd Font Mono 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -163,7 +194,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "󰟪 %a\n<b>󰋑 %s</b>\n%b"
+    format = "<b>%a</b>\n%s\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -171,7 +202,7 @@
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
-    vertical_alignment = center
+    vertical_alignment = left
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -214,7 +245,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 80
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
     icon_path = /usr/share/icons/Tela-circle-dracula/16/actions:/usr/share/icons/Tela-circle-dracula/16/apps:/usr/share/icons/Tela-circle-dracula/16/devices:/usr/share/icons/Tela-circle-dracula/16/mimetypes:/usr/share/icons/Tela-circle-dracula/16/panel:/usr/share/icons/Tela-circle-dracula/16/places:/usr/share/icons/Tela-circle-dracula/16/status
@@ -250,7 +281,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 10
+    corner_radius = 3
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -432,34 +463,3 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
-
-[Type-1]
-    summary = "t1"
-    format = "<b>%a</b>"
-
-[Type-2]
-    summary = "t2"
-    format = "<span size="250%">%a</span>\n%b"
-
-[urgency_critical]
-    background = "#f5e0dc"
-    foreground = "#1e1e2e"
-    frame_color = "#f38ba8"
-    icon = "~/.config/dunst/icons/critical.svg"
-    timeout = 0
-    # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
-
-[urgency_low]
-    background = "#1D1E23"
-    foreground = "#E5E4D9"
-    frame_color = "#232B3B"
-    icon = "~/.config/dunst/icons/hyprdots.svg"
-    timeout = 10
-
-[urgency_normal]
-    background = "#838B9B"
-    foreground = "#E5E4D9"
-    frame_color = "#7B3655"
-    icon = "~/.config/dunst/icons/hyprdots.svg"
-    timeout = 10
