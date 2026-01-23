@@ -18,7 +18,6 @@ essential_packages=(
     discord
     swww
     waybar
-    wlogout
     dunst
     pavucontrol
     rofi
