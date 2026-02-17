@@ -13,84 +13,69 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local servers = {
-            --{
-            --    name = "pylyzer",
-            --},
+            {
+                name = "pylyzer",
+            },
             {
                 name = "jedi_language_server",
-            },
-            --{
-            --    name = "ruff_lsp",
-            --},
-            --[[
-            {
-                name = "rust_analyzer",
                 config = {
-                    checkOnSave = {
-                        command = "clippy",
-                    },
-                    on_attach = function(client, bufnr)
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            buffer = bufnr,
-                            callback = function ()
-                                vim.lsp.buf.format()
-                            end
-                        })
-                    end,
-                    diagnostics = {
-                        enable = true,
-                    },
+                    filetypes = { "python" },
                 },
-            },]]
+            },
+            {
+                name = "typos_lsp",
+            },
+            {
+                name = "ruff_lsp",
+            },
             {
                 name = "lua_ls",
                 before_start = function ()
                     require("neodev").setup({})
                 end,
-                config = {
-                    on_init = function(client)
-                        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                            runtime = {
-                            -- Tell the language server which version of Lua you're using
-                            -- (most likely LuaJIT in the case of Neovim)
-                                version = 'LuaJIT'
-                            },
-                            -- Make the server aware of Neovim runtime files
-                            workspace = {
-                                checkThirdParty = false,
-                                library = {
-                                    vim.env.VIMRUNTIME
-                                    -- Depending on the usage, you might want to add additional paths here.
-                                    -- "${3rd}/luv/library"
-                                    -- "${3rd}/busted/library",
-                                }
-                                -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                                -- library = vim.api.nvim_get_runtime_file("", true)
-                            }
-                        })
-                    end,
-                },
+                filetypes = { "lua" },
             },
             {
                 name = "ts_ls",
+                config = {
+                    filetypes = { "javascript", "html", "typescript" },
+                },
             },
             {
                 name = "html",
+                config = {
+                    filetypes = { "html" },
+                },
             },
             {
                 name = "cssls",
+                config = {
+                    filetypes = { "css" },
+                },
             },
             {
                 name = "vimls",
+                config = {
+                    filetypes = { "vim", "lua" },
+                },
             },
             {
                 name = "dartls",
+                config = {
+                    filetypes = { "dart" },
+                },
             },
             {
                 name = "clangd",
+                config = {
+                    filetypes = { "c", "cpp" },
+                },
             },
             {
                 name = "jdtls",
+                config = {
+                    filetypes = { "java" },
+                },
             },
         }
 
@@ -105,6 +90,7 @@ return {
             end
 
             vim.lsp.config(server.name, setup_config)
+            vim.lsp.enable(server.name)
         end
 
         local luasnip = require("luasnip")
