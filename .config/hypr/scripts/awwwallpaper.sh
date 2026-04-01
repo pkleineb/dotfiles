@@ -11,7 +11,7 @@ Wall_Update()
     local x_wall="$1"
     local x_update="${x_wall/$HOME/"~"}"
     cacheImg=$(basename "$x_wall")
-    $ScrDir/swwwallbash.sh "$x_wall" &
+    $ScrDir/awwwallbash.sh "$x_wall" &
 
     if [ ! -f "${cacheDir}/${curTheme}/${cacheImg}" ] ; then
         convert -strip "$x_wall" -thumbnail 500x500^ -gravity center -extent 500x500 "${cacheDir}/${curTheme}/${cacheImg}" &
@@ -58,7 +58,7 @@ Wall_Set()
         xtrans="grow"
     fi
 
-    swww img "$wallSet" \
+    awww img "$wallSet" \
     --transition-bezier .43,1.19,1,.4 \
     --transition-type "$xtrans" \
     --transition-duration 0.7 \
@@ -72,9 +72,9 @@ Wall_Set()
 
 ScrDir=`dirname "$(realpath "$0")"`
 source $ScrDir/globalcontrol.sh
-wallSet="${XDG_CONFIG_HOME:-$HOME/.config}/swww/wall.set"
-wallBlr="${XDG_CONFIG_HOME:-$HOME/.config}/swww/wall.blur"
-wallRfi="${XDG_CONFIG_HOME:-$HOME/.config}/swww/wall.rofi"
+wallSet="${XDG_CONFIG_HOME:-$HOME/.config}/awww/wall.set"
+wallBlr="${XDG_CONFIG_HOME:-$HOME/.config}/awww/wall.blur"
+wallRfi="${XDG_CONFIG_HOME:-$HOME/.config}/awww/wall.rofi"
 ctlLine=$(grep '^1|' ${ThemeCtl})
 
 if [ `echo $ctlLine | wc -l` -ne "1" ] ; then
@@ -89,8 +89,8 @@ wallPath=$(dirname "$fullPath")
 mapfile -d '' Wallist < <(find ${wallPath} -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -print0 | sort -z)
 
 if [ ! -f "$fullPath" ] ; then
-    if [ -d "${XDG_CONFIG_HOME:-$HOME/.config}/swww/$curTheme" ] ; then
-        wallPath="${XDG_CONFIG_HOME:-$HOME/.config}/swww/$curTheme"
+    if [ -d "${XDG_CONFIG_HOME:-$HOME/.config}/awww/$curTheme" ] ; then
+        wallPath="${XDG_CONFIG_HOME:-$HOME/.config}/awww/$curTheme"
         mapfile -d '' Wallist < <(find ${wallPath} -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -print0 | sort -z)
         fullPath="${Wallist[0]}"
     else
@@ -123,31 +123,31 @@ while getopts "nps" option ; do
     esac
 done
 
-# Function to start swww daemon if not running
-start_swww_daemon()
+# Function to start awww daemon if not running
+start_awww_daemon()
 {
     # Check if daemon is already running
-    if ! swww query >/dev/null 2>&1; then
-        echo "Starting swww daemon..."
+    if ! awww query >/dev/null 2>&1; then
+        echo "Starting awww daemon..."
 
-        if command -v swww-daemon >/dev/null 2>&1; then
-            swww-daemon &
+        if command -v awww-daemon >/dev/null 2>&1; then
+            awww-daemon &
             sleep 2
         else
-            echo "ERROR: swww-daemon not found. Please ensure swww 0.10.0+ is properly installed."
+            echo "ERROR: awww-daemon not found. Please ensure awww 0.10.0+ is properly installed."
             exit 1
         fi
 
         # Verify daemon started successfully
-        if ! swww query >/dev/null 2>&1; then
-            echo "ERROR: Failed to start swww daemon"
+        if ! awww query >/dev/null 2>&1; then
+            echo "ERROR: Failed to start awww daemon"
             exit 1
         fi
-        echo "swww daemon started successfully"
+        echo "awww daemon started successfully"
     fi
 }
 
 
-start_swww_daemon
-# check swww daemon and set wall
+start_awww_daemon
+# check awww daemon and set wall
 Wall_Set

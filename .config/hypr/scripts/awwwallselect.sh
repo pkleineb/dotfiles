@@ -13,8 +13,8 @@ fi
 
 fullPath=$(echo "$ctlLine" | awk -F '|' '{print $NF}' | sed "s+~+$HOME+")
 wallPath=$(dirname "$fullPath")
-if [ ! -d "${wallPath}" ] && [ -d "${XDG_CONFIG_HOME:-$HOME/.config}/swww/${gtkTheme}" ] && [ ! -z "${gtkTheme}" ] ; then
-    wallPath="${XDG_CONFIG_HOME:-$HOME/.config}/swww/${gtkTheme}"
+if [ ! -d "${wallPath}" ] && [ -d "${XDG_CONFIG_HOME:-$HOME/.config}/awww/${gtkTheme}" ] && [ ! -z "${gtkTheme}" ] ; then
+    wallPath="${XDG_CONFIG_HOME:-$HOME/.config}/awww/${gtkTheme}"
 fi
 
 
@@ -39,7 +39,7 @@ done | rofi -dmenu -theme-str "${r_override}" -config "${RofiConf}" -select "${c
 
 # apply wallpaper
 if [ ! -z "${RofiSel}" ] ; then
-    "${ScrDir}/swwwallpaper.sh" -s "${wallPath}/${RofiSel}"
+    "${ScrDir}/awwwallpaper.sh" -s "${wallPath}/${RofiSel}"
     dunstify "t1" -a " ${RofiSel}" -i "${cacheDir}/${gtkTheme}/${RofiSel}" -r 91190 -t 2200
 fi
 

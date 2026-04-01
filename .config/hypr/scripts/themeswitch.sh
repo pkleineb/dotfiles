@@ -69,14 +69,14 @@ else
 fi
 
 
-# swwwallpaper
+# awwwallpaper
 getWall=`grep '^1|' "$ThemeCtl" | awk -F '|' '{print $NF}'`
 getWall=`eval echo "$getWall"`
 getName=`basename "$getWall"`
-ln -fs "$getWall" "$ConfDir/swww/wall.set"
-ln -fs "$cacheDir/${ThemeSet}/${getName}.rofi" "$ConfDir/swww/wall.rofi"
-ln -fs "$cacheDir/${ThemeSet}/${getName}.blur" "$ConfDir/swww/wall.blur"
-"${ScrDir}/swwwallpaper.sh"
+ln -fs "$getWall" "$ConfDir/awww/wall.set"
+ln -fs "$cacheDir/${ThemeSet}/${getName}.rofi" "$ConfDir/awww/wall.rofi"
+ln -fs "$cacheDir/${ThemeSet}/${getName}.blur" "$ConfDir/awww/wall.blur"
+"${ScrDir}/awwwallpaper.sh"
 
 if [ $? -ne 0 ] ; then
     echo "ERROR: Unable to set wallpaper"
@@ -131,5 +131,5 @@ hyprctl reload
 
 
 # wallbash
-"${ScrDir}/swwwallbash.sh" "$getWall"
+"${ScrDir}/awwwallbash.sh" "$getWall"
 

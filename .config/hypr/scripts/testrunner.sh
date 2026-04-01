@@ -2,7 +2,7 @@
 
 ScrDir=`dirname "$(realpath "$0")"`
 source $ScrDir/globalcontrol.sh
-WalDir="${XDG_CONFIG_HOME:-$HOME/.config}/swww"
+WalDir="${XDG_CONFIG_HOME:-$HOME/.config}/awww"
 RofDir="${XDG_CONFIG_HOME:-$HOME/.config}/rofi"
 
 roficn=0
@@ -24,9 +24,9 @@ do
     #walln=`ls -l $WalDir/$themeName | wc -l`
     for (( i=1 ; i<3 ; i++ ))
     do
-        # swww
+        # awww
         sleep 0.2
-        $ScrDir/swwwallpaper.sh -n &> /dev/null
+        $ScrDir/awwwallpaper.sh -n &> /dev/null
 
         # rofiselect
         $ScrDir/rofiselect.sh &> /dev/null &
@@ -73,7 +73,7 @@ do
         pkill -x rofi
 
         # wallselect
-        $ScrDir/swwwallselect.sh &> /dev/null &
+        $ScrDir/awwwallselect.sh &> /dev/null &
         sleep 0.7
         pkill -x rofi
 
