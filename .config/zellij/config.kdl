@@ -258,6 +258,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    z-layouts location="file:/home/paul/.config/zellij/plugins/z-layouts.wasm"
 }
 
 // Plugins to load in the background when a new session starts
