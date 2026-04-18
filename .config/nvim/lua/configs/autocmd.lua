@@ -62,6 +62,17 @@ local autocmd = {
             end
         },
     },
+    {
+        event = 'BufWritePost',
+        args = {
+            pattern = '*/src/main/resources/*',
+            callback = function()
+                vim.fn.jobstart("./mvnw resources:resources", {
+                    detach = true,
+                })
+            end,
+        },
+    },
 }
 
 return autocmd
