@@ -3,6 +3,8 @@ local options = {
     number = true,
 
     scrolloff = 7,
+
+    termguicolors = true,
 }
 
 return options
