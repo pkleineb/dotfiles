@@ -72,3 +72,12 @@ sudo tee /etc/sddm.conf.d/theme.conf > /dev/null << EOF
 [Theme]
 Current=corners
 EOF
+
+echo "Installing rustup"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+echo "Installing uutils-coreutils"
+cd /tmp
+git clone https://github.com/uutils/coreutils
+cd coreutils
+sudo -E make install
