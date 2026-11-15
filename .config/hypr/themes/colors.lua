@@ -1,0 +1,2 @@
+-- Wallbash color override
+-- (colors.conf was empty; this file is generated/overwritten by the theme tooling)
